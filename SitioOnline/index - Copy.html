@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+  <title>Programa de Viajeros Frecuentes
+para Funcionarios - Ipandetec</title>
+
+
+  <link rel="stylesheet" type="text/css" href="https://dc-js.github.io/dc.js/css/dc.css" />
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tipsy/1.0.3/jquery.tipsy.js"></script>
+  
+  <script src="https://dc-js.github.io/dc.js/js/d3.js"></script>
+  <script src="https://dc-js.github.io/dc.js/js/crossfilter.js"></script>
+  <script src="https://dc-js.github.io/dc.js/js/dc.js"></script>
+
+  <script src="js/bubble-cloud.js"></script>
+
+</head>
+
+
+<body>
+
+
+  <nav class="black lighten-3" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="http://www.ipandetec.org/static/images/logo-ipandetec.png" style="
+    height: 56px;
+    margin-top: 6px;
+"></a>
+      
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+    <div class="row">
+      <div class="col l4"><img src="images/Logo.png"></div>
+      <div class="col l8"><h2 class="header light-blue-text bolder" style="font-weight: 500;font-size: 47px;">Open Data Airlines (ODA)</h2>
+              <h5 class="header  ">visualización de datos de los viajes de funcionarios públicos panameños entre los años 2015 y 2016</h5>
+</div>
+      </div>
+      <div class="row">
+      <div class="col l10 offset-l1 flow-text medium-text">
+      <p>
+        Viajar es cambiar de lugar, cambiar de ubicación, y esto solo será posible por un transporte. Los viajes tienen diferentes  motivos, ya sea recreativo, turístico, laboral, etc., el asunto en particular es el movimiento de un individuo a otro espacio, pareciera una definición sencilla, y sí lo es, pero se puede tornar más complicada cuando el que viaja es un funcionario, este viaja con fondos que no responden a su bolsillo y por ende, debe de rendir cuentas, en este punto debemos analizar los datos con la lupa de la transparencia.
+      </p>
+
+      <p>
+         La Transparencia fue bien acuerpada por la Asamblea Nacional de Diputados de la República de Panamá, que aprobó en diciembre de 2001, La Ley de Transparencia en la Gestión Pública, la misma fue promulgada el 22 de enero de 2002. Esta ley reconoce el derecho de toda persona de solicitar información y la respuesta debe darse en un término de 30 días.
+        </p>
+      <p>
+En este proyecto lo dedicamos la transparencia aplicada y a los viajeros frecuentes del gobierno.
+        </p>
+     
+      </div>
+
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+
+      <div class="row">
+        <div class="col l12 m4">
+          <div class="icon-block">
+            <h2 class="center grey-text"><i class="material-icons">search</i></h2>
+            <h5 class="center">Datos Generales</h5>
+            <p class="light">A continuación haremos un análisis de datos. Haga click para filtrar los datos de su interés por año, los resultados podrían ser sorprendentes. 
+<br>
+            
+            </p>
+          </div>
+          <div class="row">
+              <div class="col l6 s12 center">
+                 <p >Viajes por Año</p>
+                 <div id="pieAnos"></div>
+              </div>
+              <div class="col l6 s12 center">
+                 <p >Presentación de Informes
+                <br>Recuerda que <b style="color:rgb(230, 85, 13)"> NO PRESENTAR INFORMES </b>contraviene la Ley.
+                 </p>
+
+                 <div id="pieInformes"></div>
+              </div>
+          </div>
+        </div>
+
+
+
+      <div class="row">
+        <div class="col l12 m4">
+          <div class="icon-block">
+            <h2 class="center grey-text"><i class="material-icons">flight_takeoff</i></h2>
+            <h5 class="center">Cantidad de Viajes</h5>
+              <p class="light">La suma de  viajes realizados por los beneficiarios del Programa de Viajeros Frecuentes para Funcionarios revela  el Top 20 , dándole una calificación  de 5 estrellas a sus viajes. 
+Aquí conocerá,a tan solo un click, el ranking de las instituciones que más viajaron.
+</p>
+          </div>
+          <div class="row">
+
+              <div class="col l6 s12 center">
+                 <div id="top20cantidadViajesInsti">
+                                  <p >Cantidad de viajes por institución <br><a class='reset'
+          href='javascript:instiChart.filterAll();dc.redrawAll();'
+          style='display: none;'>Limpiar filtro</a><span class='reset' style='display: none;'>
+           | Seleccionado: <span class='filter'></span>
+        </span></p>
+                   <div class="clearfix"></div>
+                 </div>
+              </div>
+                            <div class="col l6 s12 center">
+                 <p >Los 20 funcionarios que más viajaron</p>
+                 <div id="top20cantidadViajes"></div>
+              </div>
+
+          </div>
+        </div>
+       <div class="row">
+            <div class="col l10 offset-l1 flow-text medium-text" >
+                <p>
+               Hace quince años que La Ley de Transparencia en la Gestión Pública entró al cuerpo normativo panameño, pero aún hay funcionarios públicos, que no rinden los informes de sus viajes gubernamentales, y esto deja un mal sabor de boca a la ciudadanía, ¿por qué?; pues no queda claro en primera instancia qué fueron a hacer nuestras autoridades en otros países; los logros del evento a que asistieron o las reuniones que tuvieron y sobre todo el impacto directo que tendrán el motivo de ese viaje, en  la agenda estatal.
+
+              </p>
+            </div>
+      </div>
+        <div class="row">
+        <div class="col l12 m4">
+          <div class="icon-block">
+            <h2 class="center grey-text"><i class="material-icons">monetization_on</i></h2>
+            <h5 class="center">Costos</h5>
+              <p class="light">La información sobre costo de viajes se divide en Costos de Tiquetes Aereos y Costo de Viáticos. En algunos casos, uno u otro es cubierto por alguna compañía, empresa, organización internacional o evento. En los otros casos, los gastos corresponden a fondos estatales. A continuación analizamos los gastos por funcionario y por institución.</p>
+          </div>
+          <div class="row">
+             
+              <div class="col l6 s12 center">
+                
+                 <div id="top20gastosViajesInsti">
+                    <p >Gastos totales por institución <br><a class='reset'
+          href='javascript:instiCostosChart.filterAll();dc.redrawAll();'
+          style='display: none;'>Limpiar filtro</a><span class='reset' style='display: none;'>
+           | Seleccionado: <span class='filter'></span>
+        </span></p> 
+                 </div>
+              </div>
+               <div class="col l6 s12 center">
+                 <p >20 Viajeros Más Frecuentes</p>
+                 <div id="top20gastosViajes"></div>
+              </div>
+          </div>
+        </div>
+    <p>
+          Existe un lazo de tres doblecesz que cada ciudadano debe de conocer, el mismo consiste en la transparencia, confianza y participación. Cada uno de estos elementos se constituye en piedras sobre las cuales los gobiernos deben de erigirse, el primer elemento, la transparencia es mencionada por algunos, subestimada por otros y poco practicada por muchos, con este primer elemento se tendrá el espacio propicio para la confianza y la participación, este último permite el diálogo, buscando que los gobiernos escuchen las voces del pueblo y den respuestas concretas, en otras palabras se trabaja en miras a una plataforma ideal para que los gobiernos sean abiertos y mejorar la interacción entre los ciudadanos. La transparencia debe de ser la palabra de moda, la que más sea mencionada en cada viaje de los funcionarios.
+
+        </p>
+
+<div class="row">
+        <div class="col l12 m4">
+          <div class="icon-block">
+            <h2 class="center grey-text"><i class="material-icons">public</i></h2>
+            <h5 class="center">Destinos</h5>
+              <p class="light">Si analizamos los datos existentes, agrupándolos por país, vemos el destino más frecuente, el cual resulta ser Estados Unidos. </p>
+          </div>
+          <div class="row">
+                         <div class="col l4 s12 center">
+                 <p >Las instituciones que viajan a más paises distintos</p>
+                 <div id="destinosCostos"></div>
+                                  <p class="light">Los 15 funcionarios más viajados</p>
+
+                <div id="cantidadViajesMin"></div>
+
+              </div>
+              <div class="col l8 s12 center">
+                 
+                 <div id="destinosBubble"><p ><a class='reset'
+          href='javascript:paisesBubbleChart.filterAll();dc.redrawAll();'
+          style='display: none;'>Limpiar filtro</a><span class='reset' style='display: none;'>
+           | Seleccionado: <span class='filter'></span>
+        </span></p></div>
+              </div>
+ 
+          </div>
+        </div>
+
+<div class="row">
+        <div class="col l12 m4">
+          <div class="icon-block">
+            <h2 class="center grey-text"><i class="material-icons">airline_seat_recline_extra</i></h2>
+            <h5 class="center">Costos y Distancias</h5>
+              <p class="light">Tomaremos en cuenta el origen: Panamá, el destino de cada viaje y el costo de viáticos, ¿Qué nos pueden decir los cálculos sobre estos datos? Asumimos las distancias en un supuesto vuelo directo desde la ciudad de Panamá hasta el destino, tomando sóolo el viaje de ida y asumiendo una vuelta igual.
+</p>
+          </div>
+          <div class="row">
+   <div class="col l4 s12 center">
+                 <p >Kilometros por institución</p>
+                 <div id="millasInsti"></div>
+              </div>      
+
+              <div class="col l4 s12 center">
+                 <p >Millas acumuladas (km)</p>
+                 <div id="nombresMillas"></div>
+              </div>
+                  
+              <div class="col l4 s12 center">
+                 <p >Los viajes más caros por kilómetro</p>
+                 <div id="viajesCaros"></div>
+
+
+              </div>
+          </div>
+        </div>
+
+
+
+    </div>
+    <br><br>
+  </div>
+
+  <footer class="page-footer light-blue lighten-4">
+
+    <div class="footer-copyright">
+      <div class="container black-text">
+      Producción y recolección de datos: <a class="black-text" href="http://www.ipandetec.org">www.ipandetec.org</a>
+      <Br>
+      Diseño y Visualizaciones: <a class="black-text" href="http://www.soviet.com.ar">Andres Snitcofsky</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+
+   <script>
+
+   function formatMiles(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+  
+
+  function toTitleCase(str)
+{
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
+function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+  var R = 6371; // Radius of the earth in km
+  var dLat = deg2rad(lat2-lat1);  // deg2rad below
+  var dLon = deg2rad(lon2-lon1); 
+  var a = 
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+    Math.sin(dLon/2) * Math.sin(dLon/2)
+    ; 
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+  var d = R * c; // Distance in km
+  if(isNaN(d))  return 0;
+
+  return d;
+}
+
+function deg2rad(deg) {
+  return deg * (Math.PI/180)
+}
+
+
+
+    var nombresChart = dc.rowChart("#top20cantidadViajes");
+    var instiChart = dc.rowChart("#top20cantidadViajesInsti");
+
+      dc.registerChart(nombresChart,"grupoCantidades")
+      dc.registerChart(instiChart,"grupoCantidades")
+
+
+    var nombresCostosChart = dc.rowChart("#top20gastosViajes");
+    var instiCostosChart = dc.rowChart("#top20gastosViajesInsti");
+
+      dc.registerChart(nombresCostosChart,"grupoCostos")
+      dc.registerChart(instiCostosChart,"grupoCostos")
+
+ var paisesBubbleChart = dc.bubbleCloud("#destinosBubble");
+
+      dc.registerChart(paisesBubbleChart,"grupoDestinos")
+
+var paisesRowChart = dc.rowChart("#destinosCostos");
+
+      dc.registerChart(paisesRowChart,"grupoDestinos")
+
+      var nombresChartMin = dc.rowChart("#cantidadViajesMin");
+
+      dc.registerChart(nombresChartMin,"grupoDestinos")
+
+
+    var nombresMillas = dc.rowChart("#nombresMillas");
+    var millasInsti = dc.rowChart("#millasInsti");
+
+        var viajesCaros = dc.rowChart("#viajesCaros");
+
+        var pieAnos = dc.rowChart("#pieAnos");
+        var pieInformes = dc.pieChart("#pieInformes");
+
+var coloreaInformes = d3.scale.ordinal().domain(["no","pdf", "si", "detalle","Others"])
+                                   .range(["rgb(230, 85, 13)", "rgb(49, 130, 189)", "rgb(107, 174, 214)","rgb(158, 202, 225)","rgb(198, 219, 239)"]);
+
+
+    var colorea = d3.scale.ordinal()
+      .domain(["AIG","ANTAI","MEF","MICI","MIDES","Ministerio de la Presidencia","Ministerio de Seguridad Pública","Ministerio del Ambiente","MINSA","MITRADEL","MIVIOT","MOP"])
+      .range(["#ff4054","#4baf4c","#e56aeb","#808500","#7a3eb3","#b36200","#1456c5","#db013e","#4196ff","#ea7b6f","#a075be","#b02050"])
+
+    d3.csv("Datos_Refinados_Finales.csv", function(error, data) {
+
+      data.forEach(function(d){
+        d.CostoTotal = Math.floor(d.CostoViaticos) + Math.floor(d.CostoPasajes);
+        var latlong = d.LatLong.replace(",",".").substr(0, d.LatLong.length-1).split(":");
+        d.Distancia = getDistanceFromLatLonInKm("8.5","-84.6",parseFloat(latlong[0]),parseFloat(latlong[1]))
+        d.Pais = toTitleCase(d.Pais);
+        if(parseFloat(d.Distancia) && Math.floor(d.CostoViaticos)){
+        d.CostoMilla = Math.floor(d.CostoViaticos)/parseFloat(d.Distancia);}
+        else{
+          d.CostoMilla = 0;
+        }
+      })
+
+      // Run the data through crossfilter and load our 'facts'
+        var facts = crossfilter(data);
+        var all = facts.groupAll();
+
+
+      // row chart nombres cantidad viajes
+      var nombres = facts.dimension(function (d) {
+          return [d.nombrecompleto,d.INSTITUCION];
+      });
+
+      var nombresGroup = nombres.group();
+      var nombresFakeGroup = getTops(nombresGroup,30);
+
+            var nombresFakeGroupMin = getTops(nombresGroup,15);
+
+
+      // row chart institucion cantidad viajes
+      var instiCantViajes = facts.dimension(function (d) {
+          return d.INSTITUCION;
+      });
+
+      var instiCantViajesGroup = instiCantViajes.group();
+
+  
+      // row chart nombres costo viajes
+      var nombresCostos = facts.dimension(function (d) {
+          return [d.nombrecompleto,d.INSTITUCION];
+      });
+
+
+      var nombresCostosGroup = nombresCostos.group().reduceSum(function (d) {
+        return d.CostoTotal;})
+
+      var nombresCostosFakeGroup = getTops(nombresCostosGroup,30);
+
+
+      // row chart institucion costo viajes
+      var instiCostosViajes = facts.dimension(function (d) {
+          return d.INSTITUCION;
+      });
+
+      var instiCostosViajesGroup = instiCostosViajes.group().reduceSum(function (d) {
+        return d.CostoTotal;});
+
+
+      // bubble chart paises
+      var paises = facts.dimension(function (d) {
+          return d.Pais;
+      });
+
+         var paisesGroup = paises.group();
+
+
+      // row chart paises costos
+      var paisesCostos = facts.dimension(function (d) {
+          return d.INSTITUCION;
+      });
+
+      var paisesCostosGroup = paisesCostos.group()    .reduce(
+        function (p, d) {
+            if(d.Pais in p.ids){
+                p.ids[d.Pais] += 1
+            }
+            else{
+                p.ids[d.Pais] = 1;
+                p.id_count++;
+            }
+            return p;
+        },
+
+        function (p, d) {
+            p.ids[d.Pais]--;
+            if(p.ids[d.Pais] === 0){
+                delete p.ids[d.Pais];
+                p.id_count--;
+            }
+            return p;
+        },
+
+        function () {
+                return {ids: {},
+                id_count: 0};
+            });
+
+
+
+ // row chart millas por persona
+      var millasPorPersona = facts.dimension(function (d) {
+          return [d.nombrecompleto,d.INSTITUCION];
+      });
+
+      var millasPorPersonaGroup = millasPorPersona.group().reduceSum(function (d) {
+        return d.Distancia;});
+
+ // row chart millas por institucion
+      var millasInstitucion = facts.dimension(function (d) {
+          return d.INSTITUCION;
+      });
+
+      var millasInstitucionGroup = millasInstitucion.group().reduceSum(function (d) {
+        return d.Distancia;});
+
+
+// row chart viajes Caros
+      var viajesCaritos = facts.dimension(function (d) {
+          return [d.nombrecompleto,d.Pais];
+      });
+
+      var viajesCaritosGroup = viajesCaritos.group().reduceSum(function (d) {
+        return d.CostoMilla;});
+
+// pie años
+      var anosDim = facts.dimension(function (d) {
+          return d.ano;
+      });
+
+      var anosDimGroup = anosDim.group();
+
+// pie informes
+      var informesDim = facts.dimension(function (d) {
+          return d.informeNumber;
+      });
+
+      var informesDimGroup = informesDim.group();
+
+
+      // nombres Cantidad graph
+
+  nombresChart.width(400)
+    .height(600)
+    .margins({top: 5, left: 5, right: 5, bottom: 25})
+    .dimension(nombres)
+    .group(nombresFakeGroup)
+    .label(function(d){return d.key[0]})
+    .title(function(d){return d.key[0] + ", "+ d.value +" viajes (" + d.key[1] +")"})
+    .colors(function(d){return colorea(d[1])})
+    .gap(2)
+
+    .elasticX(false);
+
+
+    // instituciones Cantidad graph
+
+  instiChart.width(400)
+    .height(400)
+    .margins({top: 5, left: 5, right: 5, bottom: 25})
+    .dimension(instiCantViajes)
+    .group(instiCantViajesGroup)
+    .label(function(d){return d.key + ": "+ d.value +" viajes"})
+    .title(function(d){return d.key + ", "+ d.value +" viajes"})
+    .colors(function(d){return colorea(d)})
+    .gap(2)
+    .elasticX(false);
+
+
+  // nombres Costos graph
+
+  nombresCostosChart.width(400)
+    .height(600)
+    .margins({top: 5, left: 5, right: 5, bottom: 25})
+    .dimension(nombresCostos)
+    .group(nombresCostosFakeGroup)
+    .label(function(d){return d.key[0]})
+    .title(function(d){return d.key[0] + ", "+ formatMiles(d.value) +" dólares (" + d.key[1] +")"})
+    .colors(function(d){return colorea(d[1])})
+    .gap(2)
+    .elasticX(false);
+
+
+  // instituciones Costos graph
+
+  instiCostosChart.width(400)
+    .height(400)
+    .margins({top: 5, left: 5, right: 5, bottom: 25})
+    .dimension(instiCostosViajes)
+    .group(instiCostosViajesGroup)
+    .label(function(d){return d.key + ": $ "+ formatMiles(d.value)})
+    .title(function(d){return d.key + ", "+ formatMiles(d.value) +" dólares"})
+    .colors(function(d){return colorea(d)})
+    .gap(2)
+    .elasticX(false);
+
+
+// required options
+paisesBubbleChart
+    .width(700)
+    .height(700)
+    .dimension(paises)
+    .group(paisesGroup)
+    .x(d3.scale.ordinal())
+    .r(d3.scale.linear())
+    .radiusValueAccessor(function(d) {
+        return d.value/500;
+    });
+
+
+
+
+
+// paises Costos graph
+
+  paisesRowChart.width(300)
+    .height(300)
+    .margins({top: 5, left: 5, right: 5, bottom: 25})
+    .dimension(paisesCostos)
+    .group(paisesCostosGroup)
+    .valueAccessor(function (d) {
+        return d.value.id_count;
+    })
+    .ordering(function(d){return -d.value.id_count})
+    .label(function(d){return d.key  + ", "+ d.value.id_count +" países"})
+    .title(function(d){return d.key + ", "+ d.value.id_count +" países distintos"})
+    .colors(function(d){return colorea(d)})
+    .gap(2)
+    .elasticX(false);
+
+// nombres Chart pequeño cantidad viajes
+
+ nombresChartMin.width(300)
+    .height(300)
+    .margins({top: 5, left: 5, right: 5, bottom: 25})
+    .dimension(nombres)
+    .group(nombresFakeGroupMin)
+    .label(function(d){return d.key[0]})
+    .title(function(d){return d.key[0] + ", "+ d.value +" viajes (" + d.key[1] +")"})
+    .colors(function(d){return colorea(d[1])})
+    .gap(2)
+
+    .elasticX(false);
+
+// millas por persona
+
+nombresMillas.width(300)
+    .height(400)
+    .margins({top: 5, left: 5, right: 5, bottom: 25})
+    .dimension(millasPorPersona)
+    .group(getTops(millasPorPersonaGroup,20))
+    .label(function(d){return d.key[0]})
+    .title(function(d){return d.key[0] + ", "+ formatMiles(Math.round(d.value)) +" km"})
+    .colors(function(d){return colorea(d[1])})
+    .gap(2)
+
+    .elasticX(true);
+
+
+millasInsti.width(300)
+    .height(400)
+    .margins({top: 5, left: 5, right: 5, bottom: 25})
+    .dimension(millasInstitucion)
+    .group(getTops(millasInstitucionGroup,20))
+    .label(function(d){return d.key})
+    .title(function(d){return d.key + ", "+ formatMiles(Math.round(d.value)) +" km"})
+    .colors(function(d){return colorea(d[1])})
+    .gap(2)
+
+    .elasticX(true);
+
+
+
+viajesCaros.width(300)
+    .height(400)
+    .margins({top: 5, left: 5, right: 5, bottom: 25})
+    .dimension(viajesCaritos)
+    .group(getTops(viajesCaritosGroup,20))
+    .label(function(d){return d.key[0]+ " (Viaje a "+ toTitleCase(d.key[1]) + ")"})
+    .title(function(d){return d.key + ", "+ formatMiles(Math.round(d.value)) +" $/km"})
+    .colors(function(d){return colorea(d[1])})
+    .gap(2)
+
+    .elasticX(true);
+
+
+
+  pieAnos
+    .width(400 )
+    .height(300)
+    .dimension(anosDim)
+    .group(anosDimGroup)
+    .legend(dc.legend())
+    // workaround for #703: not enough data is accessible through .label() to display percentages
+   ;
+
+
+pieInformes
+    .width(400 )
+    .height(300)
+    .slicesCap(4)
+    .innerRadius(40)
+    .dimension(informesDim)
+    .group(informesDimGroup)
+    .colors(coloreaInformes)
+    .legend(dc.legend())
+    // workaround for #703: not enough data is accessible through .label() to display percentages
+    .on('pretransition', function(chart) {
+        chart.selectAll('text.pie-slice').text(function(d) {
+            return d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+        })
+    });
+
+
+
+  // Render the Charts
+  dc.renderAll();
+
+        });
+
+
+function getTops(source_group,amount) {
+    return {
+        all: function () {
+            return source_group.top(amount);
+        }
+    };
+}
+
+
+
+         var div = d3.select("body").append("div")
+              .attr("class", "tooltip")
+              .style("opacity", 1e-6);
+
+
+
+  </script>
+
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

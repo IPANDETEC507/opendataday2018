@@ -1,0 +1,65 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+.medium-text p{
+	font-size: 0.8em;
+}
+
+
+.dc-chart g.row rect {
+    fill-opacity: 0.3;
+    cursor: pointer;
+}
+
+.dc-chart .grid-line, .dc-chart .axis .grid-line, .dc-chart .grid-line line, .dc-chart .axis .grid-line line {
+    fill: none;
+    stroke: #ccc;
+    display: none;
+    opacity: .5;
+    shape-rendering: crispEdges;
+}
+
+.dc-chart g.row text {
+    fill: #000;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+div.dc-chart {
+    float: none;
+}
+
+svg text{
+	    pointer-events: none;
+
+}
+
+h2 {
+    font-size: 3.56rem;
+    line-height: 100%;
+    margin: 0;
+}
+
+h5{
+      margin-top: 0px;
+}
+
+.icon-block {
+    padding-top: 22px;
+    border-top: dotted 2px silver;
+    margin-top: 8px;
+}
+

@@ -1,0 +1,84 @@
+pais,CostosViaticosPais,CantidadViajesPais,country,lat,long
+(no declarado),"31344,17",32,n/a,0,0
+alemania,"76137,55",67,Germany,"51,5","10,5"
+antigua y barbuda,0,1,Antigua and Barbuda,"17,05","-61,8"
+argentina,"47186,58",66,Argentina,-34,-64
+armenia,0,1,Armenia,40,45
+aruba,0,2,aruba,"12,5","-69,966667"
+australia,"26086,8",13,Australia,-25,135
+austria,"31262,65",39,Austria,"47,333333","13,333333"
+bahamas,0,1,bahamas,24,-76
+barbados,"1967,1",3,barbados,"13,166667","-59,533333"
+bélgica,"3899,36",9,Belgium,"50,833333",4
+belice,0,8,BELIZE,"17,25","-88,75"
+bolivia,"8411,29",17,Bolivia,-17,-65
+brasil,"19616,49",76,Brazil,-10,-55
+canadá,"3105,87",24,Canada,60,-96
+chile,"37859,28",78,Chile,-30,-71
+china,"37923,95",45,China,35,105
+colombia,"52576,75",230,Colombia,4,-72
+congo,0,1,Democratic Republic of the Congo,0,25
+corea del norte,"6184,34",2,North Korea,40,127
+corea del sur,"59172,18",84,South Korea,37,"127,5"
+costa rica,"26744,09",245,Costa Rica,10,-84
+cuba,"51120,34",68,Cuba,22,"-79,5"
+dinamarca,0,1,Denmark,56,10
+ecuador,"22255,07",63,Ecuador,-2,"-77,5"
+el salvador,"18597,85",172,El Salvador,"13,833333","-88,916667"
+emiratos arabes unidos,"6780,4",5,United Arab Emirates,24,54
+españa,"79037,73",84,Spain,40,-4
+estados unidos de américa,"250298,69",354,United States,"39,828175","-98,5795"
+estonia,0,1,Estonia,59,26
+etiopía,"3702,63",1,Ethiopia,8,38
+filipinas,0,1,Philippines,13,122
+francia,"90224,09",68,France,46,2
+georgia,0,1,Georgia,"41,999981","43,499905"
+ghana,0,3,Ghana,8,-2
+grecia,"3463,6",2,Greece,39,22
+guatemala,"30386,82",151,Guatemala,"15,5","-90,25"
+guinea ecuatorial,0,1,Equatorial Guinea,2,10
+guyana,0,1,guyana,5,-59
+holanda,"12031,3",16,Netherlands,"52,5","5,75"
+honduras,"43771,51",113,Honduras,15,"-86,5"
+india,0,3,India,20,77
+indonesia,0,1,Indonesia,-5,120
+inglaterra,"33496,7",20,United Kingdom,54,-4
+irlanda,"1207,15",1,Ireland,53,-8
+islas marshall,0,2,Marshall Islands,10,167
+israel,"20960,1",14,Israel,"31,5","34,75"
+italia,"47587,65",44,Italy,"42,833333","12,833333"
+jamaica,0,5,Jamaica,"18,25","-77,5"
+japón,"202856,28",51,Japan,36,138
+jordania,0,1,Jordan,31,36
+kazakhstan,2999,1,kazakhstan,48,68
+kenia,"9073,3",11,Kenya,1,38
+kuwait,"11559,57",3,Kuwait,"29,5","47,75"
+marruecos,0,5,Morocco,32,-5
+méxico,"40972,85",170,Mexico,23,-102
+namibia,0,3,Namibia,-22,17
+nepal,0,1,Nepal,28,84
+nicaragua,"27724,24",95,Nicaragua,13,-85
+níger,"1794,59",1,Niger,16,8
+paraguay,"4530,9",20,Paraguay,"-22,993333","-57,996389"
+perú,"51433,95",162,Peru,-10,-76
+polonia,"67213,53",37,Poland,52,20
+portugal,2949,4,Portugal,"39,5",-8
+puerto rico,"2471,11",10,Puerto Rico,"18,2482882","-66,4998941"
+qatar,6000,13,qatar,"25,5","51,25"
+república dominicana,"76243,38",97,Dominican Republic,19,"-70,666667"
+rumania,"2388,94",3,Romania,46,25
+rusia,"11090,07",5,Russia,60,100
+rwanda,0,1,rwanda,-2,30
+singapur,"36835,82",11,Singapore,"1,366667","103,8"
+sudafrica,0,1,South Africa,-30,26
+suecia,"4216,46",1,Sweden,62,15
+suiza,"62141,26",103,Switzerland,47,8
+tailandia,"9465,45",13,Thailand,15,100
+taiwan,"16017,71",20,taiwan,24,121
+trinidad y tobago,2119,11,Trinidad and Tobago,11,-61
+turquía,3000,8,Turkey,"39,059012","34,911546"
+uganda,0,1,Uganda,2,33
+uruguay,"13233,49",54,Uruguay,-33,-56
+venezuela,"6689,1",7,Venezuela,8,-66
+vietnam,0,1,Vietnam,"16,166667","107,833333"
+zambia,0,1,Zambia,-15,30
